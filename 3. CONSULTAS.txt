@@ -1,0 +1,102 @@
+/*=============================================================*
+                                       CONSULTA #1
+*=============================================================*/
+
+/*====================================================================*
+Histórico de referencias por Niñera 
+LA NIÑERA  CON ID=1 DE  APELLIDO Y NOMBRE= Anchundia Rosa
+*====================================================================*/
+select  ID_NINERA , AP_Y_NOM_NINERA AS NIÑERA, AP_Y_NOM_REFERENCIA AS REFERNCIA_A from REFERENCIA
+	  where  ID_NINERA ='1'	
+
+/*=======================================*
+LA NIÑERA  CON ID=2 DE  APELLIDO Y NOMBRE= Estrada Jaime
+*=======================================*/
+ select  ID_NINERA , AP_Y_NOM_NINERA AS NIÑERA, AP_Y_NOM_REFERENCIA AS REFERNCIA_A from REFERENCIA
+	  where  ID_NINERA ='2'	
+
+/*===================================*
+LA NIÑERA  CON ID=3 DE  APELLIDO Y NOMBRE=Mero John
+*===================================*/
+
+select  ID_NINERA , AP_Y_NOM_NINERA AS NIÑERA, AP_Y_NOM_REFERENCIA AS REFERNCIA_A from REFERENCIA
+	  where  ID_NINERA ='3'	
+
+
+/*=============================================================================*/
+                                     /*CONSULTA #2*/
+/*============================================================================*/
+
+/*====================================*/
+                                   /*Histórico de solicitudes por cliente 
+EL CLIENTE CON ID=1 DE  APELLIDO Y NOMBRE= Palacios Michael*/
+/*====================================*/
+select  ID_PEDIDO,AP_Y_NOM__CLIENTE AS CLIENTE, ESTADO_PEDIDO AS SOLICITUDES from 	PEDIDO
+	  where AP_Y_NOM__CLIENTE = 'Palacios Michael'
+
+
+/*====================================*/
+/*EL CLIENTE CON ID=2 DE  APELLIDO Y NOMBRE= Gavilanez Fernando*/
+/*====================================*/
+ select  ID_PEDIDO,AP_Y_NOM__CLIENTE AS CLIENTE, ESTADO_PEDIDO AS SOLICITUDES from 	PEDIDO
+	  where AP_Y_NOM__CLIENTE = 'Gavilanez Fernando'
+
+/*====================================*/
+/*EL CLIENTE CON ID=3 DE  APELLIDO Y NOMBRE= Moreira Hector*/
+/*====================================*/
+
+ select  ID_PEDIDO,AP_Y_NOM__CLIENTE AS CLIENTE, ESTADO_PEDIDO AS SOLICITUDES from 	PEDIDO
+	  where AP_Y_NOM__CLIENTE = 'Moreira Hector'
+/*=============================================================================*/
+        /*                             CONSULTA #3*/
+/*============================================================================*/
+
+/*===============================================*/
+/*Histórico de calificación por niñera
+APELLIDO Y NOMBRE= Anchundia Rosa*/
+/*===============================================*/
+SELECT AP_Y_NOM_NINERA AS NIÑERA,CALIFICACION_NINERA as calificacion FROM NINERA
+where AP_Y_NOM_NINERA = 'Anchundia Rosa'
+
+/*===============================================*/
+/*APELLIDO Y NOMBRE= Estrada Jaime*/
+/*===============================================*/
+SELECT AP_Y_NOM_NINERA AS NIÑERA,CALIFICACION_NINERA as calificacion FROM NINERA
+where AP_Y_NOM_NINERA = 'Estrada Jaime'
+
+/*===============================================*/
+/*APELLIDO Y NOMBRE= Mero Jhon*/
+/*===============================================*/
+SELECT AP_Y_NOM_NINERA AS NIÑERA,CALIFICACION_NINERA as calificacion FROM NINERA
+where AP_Y_NOM_NINERA = 'Mero Jhon'
+
+/*=============================================================================*/
+                           /*          CONSULTA #4*/
+/*============================================================================*/
+/*===============================================*/
+/*Histórico  de ocasiones en la que anuló  solicitudes
+EL CLIENTE CON ID=1 DE  APELLIDO Y NOMBRE= Palacios Michael*/
+/*===============================================*/
+ select  ID_PEDIDO,AP_Y_NOM__CLIENTE AS CLIENTE,FECHA_INGRESO as fecha, ESTADO_PEDIDO AS SOLICITUDES from 	PEDIDO
+	  where ESTADO_PEDIDO='anulado' AND AP_Y_NOM__CLIENTE = 'Palacios Michael'
+
+/*===============================================*/
+/*EL CLIENTE CON ID=2 DE  APELLIDO Y NOMBRE= Gavilanez Fernando*/
+/*===============================================*/
+
+ select  ID_PEDIDO,AP_Y_NOM__CLIENTE AS CLIENTE,FECHA_INGRESO as fecha, ESTADO_PEDIDO AS SOLICITUDES from 	PEDIDO
+	  where ESTADO_PEDIDO='anulado' AND AP_Y_NOM__CLIENTE = 'Gavilanez Fernando'
+/*===============================================*/
+/*EL CLIENTE CON ID=3 DE  APELLIDO Y NOMBRE= Moreira Hector*/
+/*===============================================*/
+
+select  ID_PEDIDO,AP_Y_NOM__CLIENTE AS CLIENTE,FECHA_INGRESO as fecha, ESTADO_PEDIDO AS SOLICITUDES from 	PEDIDO
+	  where ESTADO_PEDIDO='anulado' AND AP_Y_NOM__CLIENTE = 'Moreira Hector'
+
+/*=============================================================================*/
+                         /*            CONSULTA #5 */
+/*============================================================================*/
+SELECT SUM (INGRESO_NINERA) AS SUMA_INGRESO,AP_Y_NOM_NINERA FROM INGRESO
+GROUP BY AP_Y_NOM_NINERA
+  
+

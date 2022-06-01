@@ -1,0 +1,84 @@
+/*==============================================================*/
+/*      INSERT INTO CLIENTE                                */
+/*==============================================================*/
+
+INSERT INTO CLIENTE(ID_CLIENTE,CEDULA_CLIENTE,AP_Y_NOM__CLIENTE, TELEFONO_CLIENTE,CORREO_CLIENTE,DOMICILIO_CLIENTE )
+VALUES(1,'1306547893','Palacios Michael','0968154769','Mpalacios@gmail.com','La Floreana'),
+      (2,'1301479638','Gavilanez Fernando','09966785474','GavilanezH@gmail.com','Urbirrios'),
+	  (3,'1317419873','Moreira Hector','0998723641','hectorM@gmail.com','Los Gavilanez');
+
+/*==============================================================*/
+/*      INSERT INTO NINO                              */
+/*==============================================================*/
+INSERT INTO NINO(ID_NINO,ID_CLIENTE,CEDULA_NINO,AP_Y_NOM_NINO,EDAD_NINO,INFORMACIO_NINO,DOMICILIO_NINO )
+VALUES(1,1,'1308547968','Palacios Javier',9,'Alergìa al manì','La Floreana'),
+      (2,2,'1317896541','Gavilanez Sofìa',10,'Sìndromen de asperger','Urbirrios'),
+	  (3,3,'1350579928','Moreira Rosa',12,'Alergìa al polen','Los Gavilanez');
+
+/*==============================================================*/
+/*      INSERT INTO DESCRIPCION                              */
+/*==============================================================*/
+INSERT INTO DESCRIPCION(ID_DESCRIPCION,ID_NINO,AP_Y_NOM_NINO,DOMICILIO_CLIENTE,
+						DOMICILIO_NINO,EDAD_NINO,INFORMACIO_NINO, TELEFONO_CLIENTE )
+VALUES(1,1,'Palacios Javier','La Floreana','La Floreana',9,'Alergìa al manì','0968154769'),
+      (2,2,'Gavilanez Sofìa','Urbirrios','Urbirrios',10,'Sìndromen de asperger','09966785474'),
+	  (3,3,'Moreira Rosa','Los Gavilanez','Los Gavilanez',12,'Alergìa al polen','0998723641');
+/*==============================================================*/
+/*      INSERT INTO PEDIDO                            */
+/*==============================================================*/
+INSERT INTO PEDIDO (ID_PEDIDO,ID_CLIENTE,FECHA_INGRESO, ESTADO_PEDIDO,ESTADO_PAGO,AP_Y_NOM__CLIENTE )
+VALUES(1,1,'2022/05/24','hecho','cancelado','Palacios Michael'),
+      (2,2,'2022/06/01','anulado','cancelado','Gavilanez Fernando'),
+	  (3,3,'2022/05/24','hecho','adeudo','Moreira Hector');
+	  
+INSERT INTO PEDIDO (ID_PEDIDO,ID_CLIENTE,FECHA_INGRESO, ESTADO_PEDIDO,ESTADO_PAGO,AP_Y_NOM__CLIENTE )
+VALUES(4,1,'2022/05/31','hecho','cancelado','Palacios Michael'),
+      (5,2,'2022/06/01','anulado','cancelado','Gavilanez Fernando'),
+	  (6,3,'2022/05/16','hecho','adeudo','Moreira Hector'),
+	  (7,1,'2022/05/06','anulado','cancelado','Palacios Michael'),
+      (8,2,'2022/06/01','anulado','cancelado','Gavilanez Fernando'),
+	  (9,3,'2022/05/17','anulado','adeudo','Moreira Hector');
+
+/*==============================================================*/
+/*      INSERT INTO NINERA                             */
+/*==============================================================*/
+INSERT INTO NINERA (ID_NINERA,ID_NINO,CEDULA_NINERA,AP_Y_NOM_NINERA,EDAD_NINERA,TELEFONO_NINERA,
+					CORREO_NINERA,DOMICILIO_NINERA,CALIFICACION_NINERA,INGRESO_NINERA   )
+VALUES(1,1,'1318527419','Anchundia Rosa',18,'0968153941','AnchundiaRosa@gmail.com','El Palmar',10,'900'),
+      (2,2,'1305873492','Estrada Jaime',23,'0998747516','JaimeE@gmail.com','El Palmar',8,'750'),
+	  (3,3,'1308749634','Mero Jhon',25,'098737684','Jmero@gmail.com','Ceibo Renacer',7,'700');
+/*==============================================================*/
+/*      INSERT INTO INGRESO                             */
+/*==============================================================*/
+
+INSERT INTO INGRESO (ID_INGRESO,ID_NINERA,AP_Y_NOM_NINERA,INGRESO_NINERA)
+VALUES(1,1,'Anchundia Rosa',900),
+      (2,2,'Estrada Jaime',750),
+	  (3,3,'Mero Jhon',700),
+	  (4,1,'Anchundia Rosa',1000),
+      (5,2,'Estrada Jaime',850),
+	  (6,3,'Mero Jhon',600);
+
+/*==============================================================*/
+/*      INSERT INTO REFERENCIA                             */
+/*==============================================================*/
+INSERT INTO REFERENCIA (ID_REFERNCIA,ID_NINERA,AP_Y_NOM_NINERA,AP_Y_NOM_REFERENCIA,CEDULA_REFERENCIA,
+						DOMICILIO_REFERENCIA,EDAD_REFERENCIA,TELEFONO_REFERENCIA )
+VALUES(1,1,'Anchundia Rosa','Zambrano Nathaly','1365478952','Los Cactus',25,'0987526419'),
+      (2,2,'Estrada Jaime','Bonilla Fernanda','1347895423','La Floreana',21,'0963847258'),
+	  (3,3,'Mero Jhon','Martinez Martha','1317895423','Divino Nño',28,'0969922774');
+INSERT INTO REFERENCIA (ID_REFERNCIA,ID_NINERA,AP_Y_NOM_NINERA,AP_Y_NOM_REFERENCIA,CEDULA_REFERENCIA,
+						DOMICILIO_REFERENCIA,EDAD_REFERENCIA,TELEFONO_REFERENCIA )	
+	VALUES(4,1,'Anchundia Rosa','Zapata Armado','1314752322','Los Electricos',19,'0987547258'),
+      (5,2,'Estrada Jaime','lopez Ariana','1311415249','Cdla Universitaria',27,'0963826419'),
+	  (6,3,'Mero Jhon','Borja Holger','1395557531','Divino Niño',22,'0967412583');
+
+/*==============================================================*/
+/*      INSERT INTO FACTURA                             */
+/*==============================================================*/
+
+INSERT INTO FACTURA (ID_FACTURA,ID_PEDIDO,ID_NINERA,AP_Y_NOM__CLIENTE,AP_Y_NOM_NINO,
+					 CORREO_CLIENTE,ESTADO_PAGO,ESTADO_PEDIDO,FECHA_INGRESO, TELEFONO_CLIENTE )
+VALUES(1,1,3,'Palacios Michael','Palacios Javier','Mpalacios@gmail.com','cancelado','hecho','2022/05/24','0968154769'),
+  (2,2,2,'Gavilanez Fernando','Gavilanez Sofìa','GavilanezH@gmail.com','cancelado','anulado','2022/06/01','09966785474'),
+  (3,3,1,'Moreira Hector','Moreira Rosa','hectorM@gmail.com','adeudo','hecho','2022/05/24','0998723641');
